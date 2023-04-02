@@ -1,6 +1,6 @@
 package assignment;
 
-public class largestNumber {
+public class LargestNumber {
 	int n1;
 	int n2;
 	int n3;

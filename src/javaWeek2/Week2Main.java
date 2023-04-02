@@ -13,6 +13,12 @@ public class Week2Main {
 		ForLoopDemo atmPinLocked = new ForLoopDemo();
 		atmPinLocked.actualPin=1234;
 		atmPinLocked.cardBlockedAfter3IncorrectPin();
+		System.out.println("*****************");
+		ATMWithdrawal wc = new ATMWithdrawal();
+		wc.accountBalance=5000;
+		wc.withdrawalAmount=1000;
+		wc.customerAtmWithdrawalWithPin();
+		
 
 	}
 

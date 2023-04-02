@@ -1,6 +1,6 @@
 package assignment;
 
-public class driverLicense {
+public class DriverLicense {
 	int age;
 	boolean G1;
 	boolean G2;

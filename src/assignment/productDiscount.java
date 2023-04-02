@@ -1,6 +1,6 @@
 package assignment;
 
-public class productDiscount {
+public class ProductDiscount {
 float originalPriceOfProduct;
 float finalPrice;
 boolean Promo5;

@@ -4,14 +4,14 @@ public class Assignment1Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		largestNumber largest = new largestNumber();
+		LargestNumber largest = new LargestNumber();
 		largest.n1=5;
 		largest.n2=44;
 		largest.n3=22;
 		largest.findLargestNumber();
 		System.out.println("*******************************");
 		
-		productDiscount priceAfterDiscount = new productDiscount();
+		ProductDiscount priceAfterDiscount = new ProductDiscount();
 		priceAfterDiscount.originalPriceOfProduct = 100.0f;
 		//priceAfterDiscount.Promo5 = true;
 		priceAfterDiscount.Promo10 = true;
@@ -19,7 +19,7 @@ public class Assignment1Main {
 		priceAfterDiscount.discountApplied();
 		System.out.println("*******************************");
 		
-		driverLicense eligibilityForLicense = new driverLicense();
+		DriverLicense eligibilityForLicense = new DriverLicense();
 		eligibilityForLicense.age=20;
 		//eligibilityForLicense.age=16;
 		//eligibilityForLicense.age=17;
