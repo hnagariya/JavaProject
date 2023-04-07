@@ -14,13 +14,15 @@ public class ForLoopDemo {
 			if (enteredPin == actualPin) {
 				System.out.println("Entered pin is correct");
 				break;
-			} else {
+			} 
+			else {
 				System.out.println("Entered pin is incorrect");
+				if (counter == 3)
+					System.out.println("You have entered incorrect password for 3 times. Your card is locked");
 			}
-			if (counter == 3) {
-				System.out.println("You have entered incorrect password for 3 times. Your card is locked");
-			}
-		}
-	}
+		
 
+		}
+
+	}
 }

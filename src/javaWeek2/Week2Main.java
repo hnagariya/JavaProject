@@ -18,6 +18,10 @@ public class Week2Main {
 		wc.accountBalance=5000;
 		wc.withdrawalAmount=1000;
 		wc.customerAtmWithdrawalWithPin();
+		System.out.println("*******************");
+		Table table =new Table();
+		table.tableOfNumber();
+		
 		
 
 	}
