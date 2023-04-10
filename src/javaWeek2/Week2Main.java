@@ -8,7 +8,7 @@ public class Week2Main {
 		multipleOf2.number = 2;
 		multipleOf2.table2();
 		multipleOf2.number = 3;
-		//multipleOf2.table3();
+		multipleOf2.table3();
 		System.out.println("*****************");
 		ForLoopDemo atmPinLocked = new ForLoopDemo();
 		atmPinLocked.actualPin=1234;

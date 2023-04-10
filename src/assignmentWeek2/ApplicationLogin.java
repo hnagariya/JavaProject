@@ -21,8 +21,6 @@ public class ApplicationLogin {
 				break;
 			} else if (enteredUserID != actualUserID || enteredPassword != actualPassword) {
 				System.out.println("Incorrect user ID or Password. Please try again");
-			} else {
-				System.out.println("Incorrect user ID and Password. Please try again");
 			}
 			if (counter == 3) {
 				System.out.println("3 incorrect attempt.Your account is locked");

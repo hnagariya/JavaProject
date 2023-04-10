@@ -11,7 +11,7 @@ public class TableOf2 {
 		}
 	void table3() {
 		//int finalNumber = number*10;
-		int finalNumber = number*2;
+		int finalNumber = number*10;
 		do {
 			System.out.println(number);
 			number += 3;

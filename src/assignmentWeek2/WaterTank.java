@@ -1,20 +1,16 @@
 package assignmentWeek2;
 
 public class WaterTank {
-	int bucket;
 	int waterTank;
+	int fillWaterTank;
 
-	/*
-	 * void fillWaterTank() { waterTank = bucket*10; while (bucket<=waterTank) {
-	 * System.out.println(bucket); bucket+=10; } }
-	 */
+	
 	void waetrTankFill() {
-		for (int a = 10; a <= waterTank; a += 10) {
-			if (a == waterTank) {
-				System.out.println("Water tank is filled. Do not fill more.");
+		for (int a = waterTank; a <= fillWaterTank; a += 10) {
+			if (waterTank <= fillWaterTank) {
+				System.out.println("Water tank is filled: " + waterTank + "ml");
+				waterTank+=10;
 			}
-
 		}
-
 	}
 }

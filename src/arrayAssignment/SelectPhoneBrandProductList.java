@@ -14,7 +14,7 @@ public class SelectPhoneBrandProductList {
 	void displayAvailableProductOfPhoneBrand() {
 		System.out.println("Enter the phone brand. Either Samsung or Google or Apple.");
 		phoneBrand = sc.nextLine();
-		boolean inProductList=false;
+		boolean inProductList = false;
 		if (phoneBrand.equals("Samsung")) {
 			System.out.println(Arrays.toString(sam));
 			System.out.println("Select product from the display list");
@@ -23,7 +23,7 @@ public class SelectPhoneBrandProductList {
 				if (productFromList.equals(sam[i])) {
 					System.out.println("Product selected is: " + sam[i]);
 					inProductList = true;
-					// break;
+					break;
 				}
 			}
 		} else if (phoneBrand.equals("Google")) {
@@ -34,7 +34,7 @@ public class SelectPhoneBrandProductList {
 				if (productFromList.equals(goog[i])) {
 					System.out.println("Product selected is: " + goog[i]);
 					inProductList = true;
-					// break;
+					break;
 				}
 			}
 		} else if (phoneBrand.equals("Apple")) {
@@ -45,11 +45,10 @@ public class SelectPhoneBrandProductList {
 				if (productFromList.equals(app[i])) {
 					System.out.println("Product selected is: " + app[i]);
 					inProductList = true;
-					// break;
+					break;
 				}
 			}
-		}
-		else {
+		} else {
 			System.out.println("Enter correct phone brand");
 		}
 		if (!inProductList) {

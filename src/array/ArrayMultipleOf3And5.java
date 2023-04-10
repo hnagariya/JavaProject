@@ -7,7 +7,7 @@ public class ArrayMultipleOf3And5 {
 	int j;
 
 	void multipleOf3And5() {
-		for (x =15; 
+		for (x =1; 
 				x <=finalx; 
 				x++) {
 			if (x % 3 == 0 && x % 5 == 0) {
