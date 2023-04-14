@@ -12,8 +12,11 @@ public class Pizza {
 	void pizzaBill() {
 		System.out.println("Please select the size either small or medium or large,of pizza from list");
 		size = sc.nextLine();
+		
 		if (size.equals("small")) {
 			price = 15;
+			System.out.println("Do you want to add pepporoni");
+			pepporoni=sc.nextBoolean();
 			if (pepporoni) {
 				price += 2;
 			}
@@ -28,6 +31,8 @@ public class Pizza {
 				price += 3;
 			}
 		}
+		System.out.println("Do you want extra cheese?");
+		extraCheese=sc.nextBoolean();
 		if (extraCheese) {
 			price += 1;
 		}
