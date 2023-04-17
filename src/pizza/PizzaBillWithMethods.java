@@ -3,9 +3,9 @@ package pizza;
 import java.util.Scanner;
 
 public class PizzaBillWithMethods {
-	//String size;
-	//boolean extraCheese;
-	//boolean Pepporoni;
+	// String size;
+	// boolean extraCheese;
+	// boolean Pepporoni;
 	double prize;
 	Scanner sc = new Scanner(System.in);
 
@@ -19,22 +19,22 @@ public class PizzaBillWithMethods {
 		}
 		return prize;
 	}
-	double pizzaWithExtraCheese(boolean extraCheese) {
+
+	void pizzaWithExtraCheese(boolean extraCheese) {
 		if (extraCheese) {
-			prize+=1;
+			prize += 1;
 		}
-		return prize;
 	}
-	double pizzaWithPepporoni(boolean pepporoni, String size) {
-		if(pepporoni && size.equals("small")) {
-			prize+=2;}
-		else if(pepporoni && (size.equals("medium")||size.equals("large"))) {
-			prize+=3;}
-		return prize;
-		
-			
+
+	void pizzaWithPepporoni(boolean pepporoni, String size) {
+		if (pepporoni && size.equals("small")) {
+			prize += 2;
+		} else if (pepporoni && (size.equals("medium") || size.equals("large"))) {
+			prize += 3;
 		}
+	}
+
 	void finalPrizePizza() {
-	System.out.println("Price of pizza is: "+ prize);
+		System.out.println("Price of pizza is: " + prize);
 	}
 }

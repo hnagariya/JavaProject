@@ -16,10 +16,10 @@ public class PizzaMain {
 		System.out.println("Please enter pizza size");
 		String size = sc.nextLine();
 		pizzaBill.pizzaSize(size);
-		System.out.println("Do you want extra cheese");
+		System.out.println("Do you want extra cheese: Y/N");
 		boolean extraCheese = sc.nextBoolean();
 		pizzaBill.pizzaWithExtraCheese(extraCheese);
-		System.out.println("Do you want to add pepporoni");
+		System.out.println("Do you want to add pepporoni: Y/N");
 		boolean pepporoni = sc.nextBoolean();
 		pizzaBill.pizzaWithPepporoni(pepporoni, size);
 		pizzaBill.finalPrizePizza();
