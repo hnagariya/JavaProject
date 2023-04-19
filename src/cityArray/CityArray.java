@@ -1,4 +1,4 @@
-package arrayName;
+package cityArray;
 
 import java.util.Scanner;
 
@@ -36,7 +36,7 @@ public class CityArray {
 		System.out.println("Replaced city name form ton to fun: ");
 		for (int i = 0; i < cityName.length; i++) {
 			if (cityName[i].substring(cityName[i].length() - 3).equals("ton")) {
-				System.out.println([i].replace("ton", "fun"));
+				System.out.println(cityName[i].replace("ton", "fun"));
 			}
 		}
 
