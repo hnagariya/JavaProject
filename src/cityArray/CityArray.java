@@ -1,5 +1,6 @@
 package cityArray;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class CityArray {
@@ -39,7 +40,6 @@ public class CityArray {
 				System.out.println(cityName[i].replace("ton", "fun"));
 			}
 		}
-
 	}
 
 	void getAddress() {
