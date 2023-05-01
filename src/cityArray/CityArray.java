@@ -38,6 +38,7 @@ public class CityArray {
 		for (int i = 0; i < cityName.length; i++) {
 			if (cityName[i].substring(cityName[i].length() - 3).equals("ton")) {
 				System.out.println(cityName[i].replace("ton", "fun"));
+				cityName.toString();
 			}
 		}
 	}

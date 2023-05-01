@@ -26,7 +26,7 @@ public class NamingGame {
 		Random random = new Random();
 		int index = random.nextInt(name.size());
 		randomName = name.get(index);
-	   // System.out.println(randomName);
+		// System.out.println(randomName);
 		return randomName;
 	}
 
@@ -67,6 +67,9 @@ public class NamingGame {
 			}
 			if (isLetterInRandomName) {
 				char[] randomNameDisplayedChar = randomNameDisplayed.toCharArray();
+				if (Character.toLowerCase(randomNameDisplayedChar[l]) == enteredLetter) {
+					System.out.println("You have already entered: " + enteredLetter);
+				}
 				randomNameDisplayedChar[l] = enteredLetter;
 				randomNameDisplayed = String.valueOf(randomNameDisplayedChar);
 				System.out.println(randomNameDisplayed);
@@ -84,5 +87,6 @@ public class NamingGame {
 				}
 			}
 		} while (counter <= 4);
+		sc.close();
 	}
 }
