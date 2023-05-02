@@ -9,9 +9,12 @@ public class BankMain {
 	public static void main(String[] args) {
 		// Scanner object created
 		Scanner sc = new Scanner(System.in);
-		PersonAccountDetails neelamAccount = new PersonAccountDetails("87654321", "Neelam", 1234, "abc1234");
+		System.out.println("Please enter initial amount of account.");
+		double initialAmountAccountBalance=sc.nextDouble();
+		sc.nextLine();
+		PersonAccountDetails neelamAccount = new PersonAccountDetails("87654321", "Neelam",initialAmountAccountBalance, 1234, "abc1234");
 
-		// BankOperation class object created by defining it null, later it will be
+		// BankOperation class object created by initializing it null, later it will be
 		// initiated through child class constructor
 		BankOperations bankOperation = null;
 
@@ -30,7 +33,7 @@ public class BankMain {
 				sc.nextLine();
 				if (enteredPin == neelamAccount.getPin(true)) {
 					// bankOperation class object created by calling child class ATM constructor
-					bankOperation = new ATM(1000);
+					bankOperation = new ATM(initialAmountAccountBalance);
 					isValidationCorrect = true;
 					break;
 				}
@@ -43,7 +46,7 @@ public class BankMain {
 				String enteredPassword = sc.nextLine();
 				if (enteredPassword.equals(neelamAccount.getOnlineBankingPassword(true))) {
 					// bankOperation class object created by calling child class ATM constructor
-					bankOperation = new OnlineBanking(1000);
+					bankOperation = new OnlineBanking(initialAmountAccountBalance);
 					isValidationCorrect = true;
 					break;
 				}
@@ -75,7 +78,8 @@ public class BankMain {
 				isTypeOfOperationCorrect = true;
 			}
 			if (isTypeOfOperationCorrect) {
-				System.out.println("Your account balance is: " + bankOperation.getAccountBalance());
+				neelamAccount.setAccountBalance(bankOperation.accountBalance);
+				System.out.println("Your account balance is: " + neelamAccount.getAccountBalance());
 			} else {
 				System.out.println("Please enter correct type of Operation");
 			}

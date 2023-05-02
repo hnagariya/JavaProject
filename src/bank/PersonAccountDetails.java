@@ -3,14 +3,20 @@ package bank;
 public class PersonAccountDetails {
 	private String accountNumber;
 	private String accountHolderName;
-	private double totalFunds;
+	private double accountBalance;
 	private int pin;
 	private String onlineBankingPassword;
 
-	public PersonAccountDetails(String accountNumber, String accountHolderName, int pin, String onlineBankingPassword) {
+	public PersonAccountDetails() {
+		super();
+	}
+
+	public PersonAccountDetails(String accountNumber, String accountHolderName, double accountBalance, int pin,
+			String onlineBankingPassword) {
 		super();
 		this.accountNumber = accountNumber;
 		this.accountHolderName = accountHolderName;
+		this.accountBalance = accountBalance;
 		this.pin = pin;
 		this.onlineBankingPassword = onlineBankingPassword;
 	}
@@ -57,8 +63,12 @@ public class PersonAccountDetails {
 		return accountHolderName;
 	}
 
-	public double getTotalFunds() {
-		return totalFunds;
+	public double getAccountBalance() {
+		return accountBalance;
+	}
+
+	public void setAccountBalance(double accountBalance) {
+		this.accountBalance = accountBalance;
 	}
 
 }

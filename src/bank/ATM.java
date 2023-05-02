@@ -2,22 +2,24 @@ package bank;
 
 public class ATM extends BankOperations {
 
-	public ATM(int accountBalance) {
-		super(accountBalance);
+	
+
+	public ATM(double accocuntBalance) {
+		super(accocuntBalance);
 	}
 
 	double depositAmount(double amountDeposited, int chequeNumber) {
 		System.out.println("Money deposited by cheque");
-		setAccountBalance(getAccountBalance() + amountDeposited);
-		return getAccountBalance();
+		accountBalance=accountBalance + amountDeposited;
+		return accountBalance;
 	}
 
 	@Override
 	double withdrawAmount(double amountWithdrawn) {
 		int counter = 0;
-		if (amountWithdrawn < getAccountBalance()) {
-			System.out.println("You have withdrawn: "+amountWithdrawn);
-			setAccountBalance(getAccountBalance() - amountWithdrawn);
+		if (amountWithdrawn <accountBalance) {
+			System.out.println("You have withdrawn: " + amountWithdrawn);
+			accountBalance=accountBalance - amountWithdrawn;
 			counter++;
 		} else {
 			System.out.println("You do not have enough balance. Enter the amount lesser than Account Balance");
@@ -26,7 +28,7 @@ public class ATM extends BankOperations {
 			System.out.println("You have exceed the free limit of ATM");
 		}
 
-		return getAccountBalance();
+		return accountBalance;
 	}
 
 }

@@ -4,24 +4,18 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class BankOperations {
-	private double accountBalance;
+	double accountBalance;
+
 
 	public BankOperations(double accountBalance) {
-		this.accountBalance = accountBalance;
-	}
-
-	double getAccountBalance() {
-		return accountBalance;
-	}
-
-	void setAccountBalance(double accountBalance) {
+		super();
 		this.accountBalance = accountBalance;
 	}
 
 	double withdrawAmount(double amountWithdrawn) {
 		if (amountWithdrawn < accountBalance) {
-			System.out.println("You have withdrawn: "+amountWithdrawn);
-			accountBalance = accountBalance - amountWithdrawn;
+			System.out.println("You have withdrawn: " + amountWithdrawn);
+			accountBalance=accountBalance - amountWithdrawn;
 		} else {
 			System.out.println("You do not have enough balance. Enter the amount lesser than Account Balance");
 		}
@@ -29,7 +23,7 @@ public class BankOperations {
 	}
 
 	double depositAmount(double amountDeposited) {
-		accountBalance = accountBalance + amountDeposited;
+		accountBalance=accountBalance + amountDeposited;
 		return accountBalance;
 	}
 
