@@ -38,8 +38,4 @@ public class Car {
 	public int getSeatingCapacity() {
 		return seatingCapacity;
 	}
-	
-	
-	
-
 }

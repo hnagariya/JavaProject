@@ -71,4 +71,33 @@ public class PersonAccountDetails {
 		this.accountBalance = accountBalance;
 	}
 
+    PersonAccountDetails[]personList=new PersonAccountDetails[5];
+    
+    public void addPersonToPersonList(PersonAccountDetails[] person) {
+		for (int i = 0; i < personList.length; i++) {
+			if (personList[i] == null) {
+				personList[i] = person[i];
+			}
+		}
+	}
+    
+	public double getAccountBalanceOfPerson(String personAccountNumber) {
+		double accountBalance=0.0;
+		for(int i=0;i<personList.length;i++) {
+			if(personAccountNumber.equals(personList[i].getAccountNumber())){
+				accountBalance=personList[i].getAccountBalance();
+			}
+		}
+		return accountBalance;
+	}
+
+	public PersonAccountDetails getObjectOfPersonDetail(String personAccountNumber) {
+	 PersonAccountDetails ObjectOfPersonDetail=null;
+		for (int i=0; i<personList.length;i++) {
+			if(personAccountNumber.equals(personList[i].accountNumber)) {
+				ObjectOfPersonDetail=personList[i];
+			}
+		}
+		return ObjectOfPersonDetail;
+	}
 }

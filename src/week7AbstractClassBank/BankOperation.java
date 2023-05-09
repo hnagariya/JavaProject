@@ -1,19 +1,14 @@
 package week7AbstractClassBank;
 
 public abstract class BankOperation {
-	double accountBalance;
 
-	public BankOperation(double accountBalance) {
+	public BankOperation() {
 		super();
-		this.accountBalance = accountBalance;
 	}
-	
-
-	//public abstract boolean checkEnteredPinOrPasswordMeetReq(String enteredPinOrPassword);
 
 	public abstract String changePinPassword(String actualPinOrPassword);
 
-	double withdrawAmount(double amountWithdrawn) {
+	double withdrawAmount(double amountWithdrawn, double accountBalance) {
 		if (amountWithdrawn < accountBalance) {
 			System.out.println("You have withdrawn: " + amountWithdrawn);
 			accountBalance = accountBalance - amountWithdrawn;
@@ -23,12 +18,12 @@ public abstract class BankOperation {
 		return accountBalance;
 	}
 
-	double depositAmount(double amountDeposited) {
+	double depositAmount(double amountDeposited, double accountBalance) {
 		accountBalance = accountBalance + amountDeposited;
 		return accountBalance;
 	}
 
-	void viewBalance() {
+	void viewBalance(double accountBalance) {
 		System.out.println("Your account balance is: " + accountBalance);
 	}
 

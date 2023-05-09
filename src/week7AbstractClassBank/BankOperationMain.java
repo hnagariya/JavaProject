@@ -8,23 +8,31 @@ public class BankOperationMain {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Please enter initial amount of account.");
-		double initialAccountBalance = sc.nextDouble();
-		sc.nextLine();
+	
 		int enteredPinToValidate = 0;
 		String enteredPasswordToValidate = "";
 		String actualPinOrPassword = "";
 
-		PersonAccountDetails neelamAccount = new PersonAccountDetails("87654321", "Neelam", initialAccountBalance, 1234,
-				"abc1234");
-
+		PersonAccountDetails personAccount=new PersonAccountDetails();
+		PersonAccountDetails neelamAccount = new PersonAccountDetails("87654321", "Neelam", 1000, 1234,"abc1234");
+		PersonAccountDetails monikaAccount = new PersonAccountDetails("87654322", "Monika", 2000, 1235,"abc1235");
+		PersonAccountDetails saritaAccount = new PersonAccountDetails("87654323", "Sarita",3000, 1236,"abc1236");
+		PersonAccountDetails maneeshAccount = new PersonAccountDetails("87654324", "maneesh", 4000, 1237,"abc1237");
+		PersonAccountDetails suhasAccount = new PersonAccountDetails("87654325", "Suhas", 5000, 1238,"abc1238");
+		
+		PersonAccountDetails[]personList= {neelamAccount,monikaAccount,saritaAccount,maneeshAccount,suhasAccount};
+		personAccount.addPersonToPersonList(personList);
+		
 		// BankOperation class object created by initializing it null, later it will be
 		// initiated through child class constructor
 		BankOperation bankOperation = null;
-
-		// to select the option between ATM and Online banking
+        System.out.println("Please enter your accont no.");
+        String personAccountNumber= sc.next();
+       
+        PersonAccountDetails personObject=personAccount.getObjectOfPersonDetail(personAccountNumber);
+        Double accountBalance=personObject.getAccountBalance();
 		System.out.println("Please select the method of bank trsnsaction: ATM or OnlineBanking");
-		String method = sc.nextLine();
+		String method = sc.next();
 		int counter = 0;
 		boolean isValidationCorrect = false;
 
@@ -35,10 +43,10 @@ public class BankOperationMain {
 				System.out.println("Please enter your pin");
 				enteredPinToValidate = sc.nextInt();
 				sc.nextLine();
-				if (enteredPinToValidate == neelamAccount.getPin(true)) {
+				if (enteredPinToValidate == personObject.getPin(true)) {
 					// bankOperation class object created by calling child class ATM constructor
-					bankOperation = new ATM(initialAccountBalance);
-					actualPinOrPassword = Integer.toString(neelamAccount.getPin(true));
+					bankOperation = new ATM();
+					actualPinOrPassword = Integer.toString(personObject.getPin(true));
 					isValidationCorrect = true;
 					break;
 				}
@@ -48,11 +56,11 @@ public class BankOperationMain {
 		case "OnlineBanking":
 			for (counter = 0; counter < 3; counter++) {
 				System.out.println("Please enter your password");
-				enteredPasswordToValidate = sc.nextLine();
-				if (enteredPasswordToValidate.equals(neelamAccount.getOnlineBankingPassword(true))) {
+				enteredPasswordToValidate = sc.next();
+				if (enteredPasswordToValidate.equals(personObject.getOnlineBankingPassword(true))) {
 					// bankOperation class object created by calling child class ATM constructor
-					bankOperation = new OnlineBanking(initialAccountBalance);
-					actualPinOrPassword = neelamAccount.getOnlineBankingPassword(true);
+					bankOperation = new OnlineBanking();
+					actualPinOrPassword = personObject.getOnlineBankingPassword(true);
 					isValidationCorrect = true;
 					break;
 				}
@@ -67,38 +75,38 @@ public class BankOperationMain {
 			boolean isTypeOfOperationCorrect = false;
 			System.out.println("Please select the type of operation");
 			System.out.println(Arrays.toString(typeOfOperation));
-			String operationTypeSelected = sc.nextLine();
+			String operationTypeSelected = sc.next();
 
 			if (operationTypeSelected.equals("Deposit")) {
 				System.out.println("Please enter the amount to be deposited");
 				int amountDeposited = sc.nextInt();
-				bankOperation.depositAmount(amountDeposited);
+				accountBalance=bankOperation.depositAmount(amountDeposited,accountBalance);
 				isTypeOfOperationCorrect = true;
 			} else if (operationTypeSelected.equals("WithdrawMoney")) {
 				System.out.println("Please enter the amount to be withdrawn");
 				double amountWithdrawn = sc.nextDouble();
-				bankOperation.withdrawAmount(amountWithdrawn);
+				accountBalance=bankOperation.withdrawAmount(amountWithdrawn,accountBalance);
 				isTypeOfOperationCorrect = true;
 			} else if (operationTypeSelected.equals("ViewBalance")) {
-				bankOperation.viewBalance();
+				bankOperation.viewBalance(accountBalance);
 				isTypeOfOperationCorrect = true;
 			} else if (operationTypeSelected.equals("ChangePinPassword")) {
 				String s = bankOperation.changePinPassword(actualPinOrPassword);
 				if (method.equals("ATM")) {
 					int newPin = Integer.parseInt(s);
-					neelamAccount.setPin(newPin, enteredPinToValidate);
-					System.out.println(neelamAccount.getPin(true));
+					personObject.setPin(newPin, enteredPinToValidate);
+					System.out.println(personObject.getPin(true));
 				} else if (method.equals("OnlineBanking")) {
-					neelamAccount.setOnlineBankingPassword(s, enteredPasswordToValidate);
-					System.out.println(neelamAccount.getOnlineBankingPassword(true));
+					personObject.setOnlineBankingPassword(s, enteredPasswordToValidate);
+					System.out.println(personObject.getOnlineBankingPassword(true));
 				}
 				isTypeOfOperationCorrect = true;
 			}
 			sc.close();
 			if (isTypeOfOperationCorrect && !operationTypeSelected.equals("ChangePinPassword")) {
-				neelamAccount.setAccountBalance(bankOperation.accountBalance);
-				System.out.println("Your account balance is: " + neelamAccount.getAccountBalance());
-			} else {
+				personObject.setAccountBalance(accountBalance);
+				System.out.println("Your account balance is: " + personObject.getAccountBalance());
+			} else if(!isTypeOfOperationCorrect){
 				System.out.println("Please enter correct type of Operation");
 			}
 		} else {
