@@ -8,34 +8,32 @@ public class OnlineBanking extends BankOperation {
 	public OnlineBanking() {
 		super();
 	}
+
 	@Override
-    double depositAmount(double amountDeposited,double accountBalance) {
+	public void depositAmount(double amountDeposited, PersonAccountDetails person) {
 		System.out.println("Deposited by etransfer");
-		accountBalance = accountBalance + amountDeposited;
-		return accountBalance;
+		person.setAccountBalance(person.getAccountBalance()+amountDeposited);
 	}
 
 	@Override
-	public String changePinPassword(String actualPinOrPassword) {
+	public void changePinPassword(PersonAccountDetails person) {
 		boolean isSpecialCharacterNotPresent = true;
 		System.out.println("Please enter your current pin");
 		String existingPassword = sc.next();
 		System.out.println(
 				"Please enter new password which should be atleast 8 character and should not containing &,$,@");
 		String newPasswordToSet = sc.next();
-		char[] newPasswordChar = newPasswordToSet.toCharArray();
-		for (int i = 0; i < newPasswordChar.length; i++) {
-			if (newPasswordChar[i] == '&' || newPasswordChar[i] == '$' || newPasswordChar[i] == '@') {
-				isSpecialCharacterNotPresent = false;
-			}
+		if(newPasswordToSet.contains("&")&& newPasswordToSet.contains("$")&& newPasswordToSet.contains("@")) {
+			isSpecialCharacterNotPresent = false;
 		}
-		if (isSpecialCharacterNotPresent && existingPassword.equals(actualPinOrPassword)
-				&& !newPasswordToSet.equals(actualPinOrPassword)) {
-			actualPinOrPassword = newPasswordToSet;
+		if (isSpecialCharacterNotPresent && existingPassword.equals(person.getOnlineBankingPassword(true))
+				&& !newPasswordToSet.equals(person.getOnlineBankingPassword(true))) {
+			person.setOnlineBankingPassword(newPasswordToSet, existingPassword);
+			System.out.println(person.getOnlineBankingPassword(isSpecialCharacterNotPresent));
 		} else {
 			System.out.println("Incorrect attempt to change password");
 		}
-		return actualPinOrPassword;
-
 	}
+
+	
 }

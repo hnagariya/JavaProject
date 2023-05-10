@@ -6,25 +6,23 @@ public abstract class BankOperation {
 		super();
 	}
 
-	public abstract String changePinPassword(String actualPinOrPassword);
+	public abstract void changePinPassword(PersonAccountDetails person);
 
-	double withdrawAmount(double amountWithdrawn, double accountBalance) {
-		if (amountWithdrawn < accountBalance) {
+	public void withdrawAmount(double amountWithdrawn, PersonAccountDetails person) {
+		if (amountWithdrawn < person.getAccountBalance()) {
 			System.out.println("You have withdrawn: " + amountWithdrawn);
-			accountBalance = accountBalance - amountWithdrawn;
+			person.setAccountBalance(person.getAccountBalance() - amountWithdrawn);
 		} else {
 			System.out.println("You do not have enough balance. Enter the amount lesser than Account Balance");
 		}
-		return accountBalance;
 	}
 
-	double depositAmount(double amountDeposited, double accountBalance) {
-		accountBalance = accountBalance + amountDeposited;
-		return accountBalance;
+	public void depositAmount(double amountDeposited, PersonAccountDetails person) {
+		person.setAccountBalance(person.getAccountBalance() + amountDeposited);
 	}
 
-	void viewBalance(double accountBalance) {
-		System.out.println("Your account balance is: " + accountBalance);
+	void viewBalance(PersonAccountDetails person) {
+		System.out.println("Your account balance is: " + person.getAccountBalance());
 	}
 
 }
