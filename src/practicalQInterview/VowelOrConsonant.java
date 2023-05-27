@@ -31,7 +31,9 @@ public class VowelOrConsonant {
 	}
 	
 	public void checkIfCharacterIsAlphabet() {
-		
+		System.out.println("Please enter a character");
+		char c=sc.next().charAt(0);
+		if(c)
 	}
 
 }

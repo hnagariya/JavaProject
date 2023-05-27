@@ -6,7 +6,7 @@ public class ArrayMain {
 		// TODO Auto-generated method stub
 		ArrayMultipleOf3And5 AM = new ArrayMultipleOf3And5();
 		AM.multipleOf3And5();
-		System.out.println(Arrays.toString(AM.intArray));
+		
 
 	}
 

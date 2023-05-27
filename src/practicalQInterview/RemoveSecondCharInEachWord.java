@@ -13,7 +13,7 @@ public class RemoveSecondCharInEachWord {
 		System.out.println(Arrays.toString(sa));
 		for (int i = 0; i < sa.length; i++) {
 			if (sa[i].length() > 1) {
-				sa[i] = sa[i].substring(0, 1) + sa[i].substring(2, sa[i].length());
+				sa[i] = sa[i].substring(0, 1) + sa[i].substring(2);
 			}
 		}
 		System.out.println(String.join(" ",sa));

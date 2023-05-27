@@ -18,8 +18,8 @@ public class AnimalMain {
 
 		mammal.sleep();
 
-		//Lion lion2 = (Lion) mammal;   ClassCastException
-		//lion2.makesSound();
+		Lion lion2 = (Lion) mammal;   
+		lion2.makesSound();
 		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("enter the animal name");

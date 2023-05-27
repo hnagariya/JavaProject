@@ -27,7 +27,7 @@ public class BankOperations {
 		return accountBalance;
 	}
 
-	void viewBalance() {
+	 void viewBalance() {
 		System.out.println("Your account balance is: " + accountBalance);
 	}
 
